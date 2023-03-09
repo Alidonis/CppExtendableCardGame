@@ -4,7 +4,7 @@ class CBaseCard
 {
 public:
 	CBaseCard();
-	void remove();
+	void remove() { std::cout << "method not implemented\n"; };
 protected:
 	virtual void event_onCardCreated() { std::cout << "Instance of CBaseCard initiated"; };
 	virtual void event_onCardPlayed() { std::cout << "CBaseCard : Card played";  };
