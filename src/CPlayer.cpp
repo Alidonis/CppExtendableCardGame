@@ -1,5 +1,7 @@
+#include <iostream>
+#include <string>
+#include <functional>
 #include <memory>
-#include <vector>
 
 #include "CPlayer.h"
 #include "CBaseCard.h"
