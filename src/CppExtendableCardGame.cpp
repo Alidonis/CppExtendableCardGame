@@ -1,4 +1,8 @@
 #include <iostream>
+#include <string>
+#include <functional>
+#include <memory>
+
 #include "CBaseGame.h"
 
 int main()
