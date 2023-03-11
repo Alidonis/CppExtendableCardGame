@@ -27,6 +27,7 @@
   <ItemGroup>
     <ClInclude Include="src\CBaseCard.h" />
     <ClInclude Include="src\CBaseGame.h" />
+    <ClInclude Include="src\CommonHeaders.h" />
     <ClInclude Include="src\CPlayer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
