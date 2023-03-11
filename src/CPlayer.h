@@ -6,6 +6,7 @@ class CPlayer
 {
 public:
 	CPlayer(int id);
+	~CPlayer() = default;
 	int getId();
 	std::vector<std::unique_ptr<CBaseCard>> getHand() { return this->hand; };
 private:
