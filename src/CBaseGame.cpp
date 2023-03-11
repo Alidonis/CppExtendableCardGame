@@ -3,6 +3,7 @@
 #include <functional>
 #include <memory>
 
+#include "CBaseCard.h"
 #include "CPlayer.h"
 #include "CBaseGame.h"
 
@@ -14,4 +15,4 @@ CBaseGame::CBaseGame()
 void CBaseGame::addPlayer(int id)
 {
 
-}
+} 

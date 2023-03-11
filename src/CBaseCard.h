@@ -4,6 +4,7 @@ class CBaseCard
 {
 public:
 	CBaseCard();
+	~CBaseCard() = default;
 	void remove() { std::cout << "method not implemented\n"; };
 protected:
 	virtual void event_onCardCreated() { std::cout << "Instance of CBaseCard initiated"; };

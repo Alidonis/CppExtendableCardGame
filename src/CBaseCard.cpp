@@ -8,4 +8,4 @@
 CBaseCard::CBaseCard()
 {
 	this->event_onCardCreated();
-}
+} 
