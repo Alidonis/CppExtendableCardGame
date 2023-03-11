@@ -1,11 +1,4 @@
-#include <iostream>
-#include <string>
-#include <functional>
-#include <memory>
-
-#include "CPlayer.h"
-#include "CBaseCard.h"
-#include "CBaseGame.h"
+#include "CommonHeaders.h"
 
 int main()
 {

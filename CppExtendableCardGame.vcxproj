@@ -82,8 +82,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>.\bin</OutDir>
-    <IntDir>.\bin\inter</IntDir>
+    <OutDir>.\bin\</OutDir>
+    <IntDir>.\bin\inter\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

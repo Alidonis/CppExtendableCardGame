@@ -13,7 +13,7 @@ struct CBaseGameHostInfo
 
 };
 
-void hi()
+inline void hi()
 {
 	std::cout << "Function pointer called function 'Hi'\n";
 }

@@ -1,11 +1,4 @@
-#include <iostream>
-#include <string>
-#include <functional>
-#include <memory>
-
-#include "CBaseCard.h"
-#include "CPlayer.h"
-#include "CBaseGame.h"
+#include "CommonHeaders.h"
 
 CBaseGame::CBaseGame()
 {

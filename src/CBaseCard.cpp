@@ -1,9 +1,4 @@
-#include <iostream>
-#include <string>
-#include <functional>
-#include <memory>
-
-#include "CBaseCard.h"
+#include "CommonHeaders.h"
 
 CBaseCard::CBaseCard()
 {
