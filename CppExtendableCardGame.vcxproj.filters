@@ -30,6 +30,9 @@
     <ClCompile Include="src\CPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CBaseCard.h">
@@ -43,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="src\CommonHeaders.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine.h">
+      <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

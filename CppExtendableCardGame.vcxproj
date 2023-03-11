@@ -23,12 +23,14 @@
     <ClCompile Include="src\CBaseGame.cpp" />
     <ClCompile Include="src\CPlayer.cpp" />
     <ClCompile Include="src\CppExtendableCardGame.cpp" />
+    <ClCompile Include="src\Engine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CBaseCard.h" />
     <ClInclude Include="src\CBaseGame.h" />
     <ClInclude Include="src\CommonHeaders.h" />
     <ClInclude Include="src\CPlayer.h" />
+    <ClInclude Include="src\Engine.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

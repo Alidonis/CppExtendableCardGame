@@ -24,7 +24,6 @@ public:
 	CBaseGame(); 
 	~CBaseGame() = default;
 	void addPlayer(int id);
-	void start() { std::cout << "Field function \"start()\" is not implemented ! I know, i'm a lazy piece of shit.\n"; };
 	void callPointer() { this->fcnPtr(); };
 private:
 	std::vector <std::unique_ptr<CPlayer>> players;

@@ -8,3 +8,4 @@
 #include "CPlayer.h"
 #include "CBaseCard.h"
 #include "CBaseGame.h"
+#include "Engine.h"
