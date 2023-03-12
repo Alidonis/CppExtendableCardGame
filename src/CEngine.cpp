@@ -5,8 +5,8 @@ CEngine::CEngine()
 	this->clientLoop();
 }
 
-void clientLoop() {
-
+void CEngine::clientLoop() {
+	std::cout << "Client loop fired.\n";
 }
 
 void CEngine::createMatch(CBaseGame* gameType)
