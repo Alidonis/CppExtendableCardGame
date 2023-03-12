@@ -23,14 +23,14 @@
     <ClCompile Include="src\CBaseGame.cpp" />
     <ClCompile Include="src\CPlayer.cpp" />
     <ClCompile Include="src\CppExtendableCardGame.cpp" />
-    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\CEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CBaseCard.h" />
     <ClInclude Include="src\CBaseGame.h" />
     <ClInclude Include="src\CommonHeaders.h" />
     <ClInclude Include="src\CPlayer.h" />
-    <ClInclude Include="src\Engine.h" />
+    <ClInclude Include="src\CEngine.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -124,6 +124,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>CommonHeaders.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

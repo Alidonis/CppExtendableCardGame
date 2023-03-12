@@ -2,6 +2,5 @@
 
 int main()
 {
-	CBaseGame *MyGame = new CBaseGame;
-	MyGame->callPointer();
+	CEngine* engine = new CEngine();
 }

@@ -10,7 +10,9 @@ class CPlayer;
 struct CBaseGameHostInfo 
 {
 	std::string serverName;
-
+	std::string hostName;
+	bool isPublic;
+	std::string password;
 };
 
 inline void hi()
