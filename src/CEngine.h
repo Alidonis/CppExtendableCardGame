@@ -8,9 +8,9 @@ class CEngine
 public:
 	CEngine();
 	~CEngine() = default;
-	void clientLoop();
 	void createMatch(CBaseGame* gameType);
 private:
+	void clientLoop();
 	std::unique_ptr<CBaseGame> gameInstance = nullptr;
 };
 

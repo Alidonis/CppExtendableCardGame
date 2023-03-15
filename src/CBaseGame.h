@@ -6,6 +6,7 @@
 //-------------------
 
 class CPlayer;
+class CEngine;
 
 struct CBaseGameHostInfo 
 {
@@ -15,26 +16,19 @@ struct CBaseGameHostInfo
 	std::string password;
 };
 
-inline void hi()
-{
-	std::cout << "Function pointer called function 'Hi'\n";
-}
-
 class CBaseGame
 {
 public:
-	CBaseGame(); 
+	CBaseGame();
 	~CBaseGame() = default;
 	void addPlayer(int id);
-	void callPointer() { this->fcnPtr(); };
 private:
 	std::vector <std::unique_ptr<CPlayer>> players;
-	std::function<void()> fcnPtr{ &hi };
+	std::unique_ptr<CEngine> ParentEngine;
 };
 
 /*
 	This class allows for creation of games (or gamemodes, rather)
-	Gonna go with a goldsource sdk style inheritance system
 
 	this class will handle everything about how the game is played
 
