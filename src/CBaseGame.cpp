@@ -2,7 +2,6 @@
 
 CBaseGame::CBaseGame()
 {
-	std::cout << "Init CBaseGame\n";
 	addPlayer(0);
 }
 

@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClCompile Include="src\CBaseCard.cpp" />
     <ClCompile Include="src\CBaseGame.cpp" />
+    <ClCompile Include="src\CBaseDeck.cpp" />
     <ClCompile Include="src\CPlayer.cpp" />
     <ClCompile Include="src\CppExtendableCardGame.cpp" />
     <ClCompile Include="src\CEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CBaseCard.h" />
+    <ClInclude Include="src\CBaseDeck.h" />
     <ClInclude Include="src\CBaseGame.h" />
     <ClInclude Include="src\CommonHeaders.h" />
     <ClInclude Include="src\CPlayer.h" />

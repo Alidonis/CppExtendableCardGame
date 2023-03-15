@@ -9,7 +9,7 @@ CEngine::CEngine()
 int CEngine::clientLoop(int _retryAttempt) {
 	int retryAttempt = _retryAttempt;
 	if (retryAttempt > 3) { return 1; }
-	std::cout << "Waiting for input\n1. create match\n2. Settings\n";
+	std::cout << "Waiting for input\n0. exit\n1. create match\n2. Settings\n";
 	std::string input;
 	std::cin >> input;
 	int choice;
@@ -26,8 +26,11 @@ int CEngine::clientLoop(int _retryAttempt) {
 
 	switch (choice)
 	{
+	case 0:
+		return 0;
+		break;
 	case 1:
-		std::cout << "Hello ! I was too lazy to implement this function.\n";
+		this->createMatch(nullptr);
 		break;
 	case 2:
 		std::cout << "No settings exist for now.\n";
@@ -42,6 +45,8 @@ int CEngine::clientLoop(int _retryAttempt) {
 
 void CEngine::createMatch(CBaseGame* gameType)
 {
+	std::cout << "type addPlayer to add a new player\type start to start the game\n";
+	std::cout << " --- Game Lobby ---\nPlayer 0 [Host]\n";
 	if (gameType != nullptr)
 	{
 		gameInstance.reset(gameType);
@@ -49,5 +54,27 @@ void CEngine::createMatch(CBaseGame* gameType)
 	else
 	{
 		gameInstance.reset(new CBaseGame());
+	}
+	
+	bool isLobbyReady = false;
+	int nextPlrId = 1;
+	while (!isLobbyReady)
+	{
+		std::string x;
+		std::cin >> x;
+		if (x == "addPlayer")
+		{
+			this->gameInstance->addPlayer(nextPlrId);
+			nextPlrId++;
+		}
+		if (x == "start") { isLobbyReady = true; }
+	}
+}
+
+std::string calculatePlayers(std::unique_ptr<std::vector<CPlayer>> players) 
+{
+	for ( int i = 0 ; i < players.get()->size() ; i++ )
+	{
+		std::cout << players.get()[i]->getId() << "\n";
 	}
 }
