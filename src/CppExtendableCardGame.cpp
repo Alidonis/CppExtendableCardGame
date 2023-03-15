@@ -2,5 +2,5 @@
 
 int main()
 {
-	CEngine* engine = new CEngine();
+	CEngine<CBaseGame>* engine = new CEngine<CBaseGame>();
 }
