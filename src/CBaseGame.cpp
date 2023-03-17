@@ -6,7 +6,7 @@ CBaseGame::CBaseGame()
 }
 
 void CBaseGame::addPlayer(int id)
-{ //TODO : validate id
+{
 	if (id < 0) { return; }
 	for (int i = 0; i < players.size(); i++)
 	{
@@ -16,4 +16,9 @@ void CBaseGame::addPlayer(int id)
 		}
 	}
 	players.push_back(std::make_unique<CPlayer>(id));
+}
+
+std::vector<std::unique_ptr<CPlayer>>& CBaseGame::getPlayers()
+{ 
+	return players;
 }

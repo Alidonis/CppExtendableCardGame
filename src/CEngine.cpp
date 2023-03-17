@@ -67,14 +67,15 @@ void CEngine::createMatch(CBaseGame* gameType)
 			this->gameInstance->addPlayer(nextPlrId);
 			nextPlrId++;
 		}
+		if (x == "listPlayers") { calculatePlayers(this->gameInstance->getPlayers()); }
 		if (x == "start") { isLobbyReady = true; }
-	}
+	} //Well really it's us all
 }
 
-std::string calculatePlayers(std::unique_ptr<std::vector<CPlayer>> players) 
+std::string calculatePlayers(std::vector<std::unique_ptr<CPlayer>>& players)
 {
-	for ( int i = 0 ; i < players.get()->size() ; i++ )
+	for ( int i = 0 ; i < players.size() ; i++ )
 	{
-		std::cout << players.get()[i]->getId() << "\n";
-	}
+		std::cout << players[i]->getId() << "\n";
+	} 
 }

@@ -12,5 +12,5 @@ public:
 private:
 	int clientLoop(int retryAttempt);
 	std::unique_ptr<CBaseGame> gameInstance = nullptr;
-};
+}; 
 

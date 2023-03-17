@@ -14,6 +14,7 @@ public:
 	CBaseGame();
 	~CBaseGame() = default;
 	void addPlayer(int id);
+	std::vector<std::unique_ptr<CPlayer>>& getPlayers();
 private:
 	std::vector <std::unique_ptr<CPlayer>> players;
 	std::unique_ptr<CEngine> ParentEngine;
