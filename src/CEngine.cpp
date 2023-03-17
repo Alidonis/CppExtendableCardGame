@@ -69,7 +69,7 @@ void CEngine::createMatch(CBaseGame* gameType)
 		}
 		if (x == "listPlayers") { calculatePlayers(this->gameInstance->getPlayers()); }
 		if (x == "start") { isLobbyReady = true; }
-	} //Well really it's us all
+	}
 }
 
 std::string calculatePlayers(std::vector<std::unique_ptr<CPlayer>>& players)
