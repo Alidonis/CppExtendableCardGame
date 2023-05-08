@@ -21,4 +21,4 @@ struct cardFactoryPair
 };
 
 #define M_LINK_CARD(cardname, dllclass) \
-EntityFactoryPair cardname = EntityFactoryPair( #cardname, [](){ return new ##dllclass(); } );
+EntityFactoryPair ##cardname = EntityFactoryPair( #cardname, [](){ return new ##dllclass(); } );
