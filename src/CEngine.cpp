@@ -1,4 +1,5 @@
 #include "CommonHeaders.h"
+#include "CommonClassHeaders.h"
 
 CEngine::CEngine()
 {
@@ -72,10 +73,10 @@ void CEngine::createMatch(CBaseGame* gameType)
 	}
 }
 
-std::string calculatePlayers(std::vector<std::unique_ptr<CPlayer>>& players)
+void CEngine::calculatePlayers(std::vector<std::unique_ptr<CPlayer>>& players)
 {
 	for ( int i = 0 ; i < players.size() ; i++ )
 	{
 		std::cout << players[i]->getId() << "\n";
-	} 
+	}
 }

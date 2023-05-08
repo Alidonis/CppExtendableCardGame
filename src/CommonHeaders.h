@@ -5,9 +5,3 @@
 #include <vector>
 #include <optional>
 #include <memory>
-
-#include "CPlayer.h"
-#include "CBaseCard.h"
-#include "CBaseDeck.h"
-#include "CBaseGame.h"
-#include "CEngine.h"

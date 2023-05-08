@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Fichiers de ressources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Headers">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
@@ -15,6 +11,16 @@
     </Filter>
     <Filter Include="Common">
       <UniqueIdentifier>{15a5f8e7-ad9a-49e3-878a-69a349adf6a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGui">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ImGui\tests">
+      <UniqueIdentifier>{ea1c4021-26e0-4494-bde2-4aeda48844e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGui\library">
+      <UniqueIdentifier>{f4d7c9cb-3006-40d5-854a-f51f1edc1c0d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -36,6 +42,33 @@
     <ClCompile Include="src\CBaseDeck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\testGui.cpp">
+      <Filter>ImGui\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imguiTests\imgui_impl_sdl2.cpp">
+      <Filter>ImGui\library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imguiTests\imgui_tables.cpp">
+      <Filter>ImGui\library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imguiTests\imgui_widgets.cpp">
+      <Filter>ImGui\library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imguiTests\imgui.cpp">
+      <Filter>ImGui\library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imguiTests\imgui_demo.cpp">
+      <Filter>ImGui\library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imguiTests\imgui_draw.cpp">
+      <Filter>ImGui\library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imguiTests\imgui_impl_opengl3.cpp">
+      <Filter>ImGui\library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cardlinker.h">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CBaseCard.h">
@@ -47,14 +80,50 @@
     <ClInclude Include="src\CPlayer.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="src\CommonHeaders.h">
-      <Filter>Common</Filter>
-    </ClInclude>
     <ClInclude Include="src\CEngine.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="src\CBaseDeck.h">
       <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommonClassHeaders.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommonHeaders.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\testGui.h">
+      <Filter>ImGui\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imguiTests\imgui_impl_opengl3_loader.h">
+      <Filter>ImGui\library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imguiTests\imgui_impl_sdl2.h">
+      <Filter>ImGui\library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imguiTests\imgui_internal.h">
+      <Filter>ImGui\library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imguiTests\imstb_rectpack.h">
+      <Filter>ImGui\library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imguiTests\imstb_textedit.h">
+      <Filter>ImGui\library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imguiTests\imstb_truetype.h">
+      <Filter>ImGui\library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imguiTests\imconfig.h">
+      <Filter>ImGui\library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imguiTests\imgui.h">
+      <Filter>ImGui\library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imguiTests\imgui_impl_opengl3.h">
+      <Filter>ImGui\library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dev.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
