@@ -15,15 +15,17 @@
 #include "CBaseCard.h"
 #include "cardlinker.h"
 
-std::vector<std::string> RegisteredCardNames(bool print = true)
+std::vector<std::string> Debug_Util_RegisteredCardNames(bool print = true, bool instanciate = false)
 {
     std::vector<std::string> cardNames;
     if (print) { std::cout << "Print start" << std::endl; }
     for (size_t i = 0; i < CardLinker_Pairs.size(); i++)
     {
-        cardNames.push_back(CardLinker_Pairs[i].classname);
-        if (print) { std::cout << CardLinker_Pairs[i].classname << std::endl; }
+        cardNames.push_back(std::string(CardLinker_Pairs[i]->classname));
+        if (print) { std::cout << std::string(CardLinker_Pairs[i]->classname) << std::endl; }
+        if (instanciate) { CardLinker_Pairs[i]->factory(); }
     }
+
     if (print) { std::cout << "Print end" << std::endl; }
     return cardNames;
 }
@@ -82,7 +84,7 @@ void testGui::gui_run() {
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
 
-        ImGui::Begin("My First Tool", &gui_active, ImGuiWindowFlags_MenuBar);
+        ImGui::Begin("Debug Window", &gui_active, ImGuiWindowFlags_MenuBar);
         if (ImGui::BeginMenuBar())
         {
             if (ImGui::BeginMenu("Window"))
@@ -93,8 +95,9 @@ void testGui::gui_run() {
             ImGui::EndMenuBar();
         }
 
-        if (ImGui::Button("Test Card Linker")) { RegisteredCardNames(); }
-        
+        if (ImGui::Button("Test Card Linker [Print]")) { Debug_Util_RegisteredCardNames(true,false); }
+        if (ImGui::Button("Test Card Linker [Instanciate]")) { Debug_Util_RegisteredCardNames(false, true); }
+        if (ImGui::Button("Test Card Linker [Print, Instanciate]")) { Debug_Util_RegisteredCardNames(true, true); }
         ImGui::End();
 
         // Step 4.3. Render the ImGui stuff

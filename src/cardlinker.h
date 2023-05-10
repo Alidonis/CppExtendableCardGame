@@ -19,4 +19,4 @@ struct cardFactoryPair
 };
 
 #define M_LINK_CARD(cardname, dllclass) \
-    cardFactoryPair __Factory##dllclass = cardFactoryPair( cardname, [](){ return new (CBaseCard*)dllclass(); } )
+    cardFactoryPair __Factory##dllclass = cardFactoryPair( cardname, [](){ return (CBaseCard*)(new dllclass()); } )

@@ -1,2 +1,3 @@
 #pragma once
-#define DEV_ENABLED
+#define PRG_MODE_DEV
+#define PRG_MODE_DEV_ENABLED true
