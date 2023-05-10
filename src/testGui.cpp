@@ -12,6 +12,22 @@
 #include "testGui.h"
 #include <format>
 
+#include "CBaseCard.h"
+#include "cardlinker.h"
+
+std::vector<std::string> RegisteredCardNames(bool print = true)
+{
+    std::vector<std::string> cardNames;
+    if (print) { std::cout << "Print start" << std::endl; }
+    for (size_t i = 0; i < CardLinker_Pairs.size(); i++)
+    {
+        cardNames.push_back(CardLinker_Pairs[i].classname);
+        if (print) { std::cout << CardLinker_Pairs[i].classname << std::endl; }
+    }
+    if (print) { std::cout << "Print end" << std::endl; }
+    return cardNames;
+}
+
 testGui::testGui(bool runImmediately = true) {
     // Step 1. Init SDL and create window
     SDL_Init(SDL_INIT_VIDEO);
@@ -31,7 +47,7 @@ testGui::testGui(bool runImmediately = true) {
     ImGui::CreateContext();
     this->io = ImGui::GetIO();
     // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
+    ImGui::StyleColorsClassic();
 
     // Setup Platform/Renderer backends
     ImGui_ImplSDL2_InitForOpenGL(window, glContext);
@@ -74,27 +90,11 @@ void testGui::gui_run() {
                 if (ImGui::MenuItem("Quit", "N/A")) { gui_active = false; windowExists = false; }
                 ImGui::EndMenu();
             }
-            if (ImGui::BeginMenu("Options"))
-            {
-                if (!devmode) 
-                    if (ImGui::MenuItem("Enable devmode", "N/A")) { devmode = true; }
-                ImGui::EndMenu();
-            }
             ImGui::EndMenuBar();
         }
 
-        ImGui::InputText("##AddListIn", textInOut, sizeof(textInOut));
-        ImGui::SameLine();
-        if (ImGui::Button("Add")) { texts.push_back(std::string(textInOut)); strcpy_s(textInOut, ""); }
-        ImGui::BeginChild("Scrolling");
-        for (int n = 1; n < texts.size() + 1; n++) 
-        {
-            ImGui::Text(texts[n - 1].c_str());
-            ImGui::SameLine();
-            if (ImGui::Button(std::string("Delete##" + std::to_string(n)).c_str())) { texts.erase(texts.begin() + (n - 1)); }
-        }
-            
-        ImGui::EndChild();
+        if (ImGui::Button("Test Card Linker")) { RegisteredCardNames(); }
+        
         ImGui::End();
 
         // Step 4.3. Render the ImGui stuff

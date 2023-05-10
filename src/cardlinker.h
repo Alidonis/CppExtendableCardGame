@@ -3,22 +3,20 @@
 #include "CBaseCard.h"
 using EntityFactory = CBaseCard*();
 
-uint8_t e = 1;
-
 struct cardFactoryPair;
-inline std::vector<cardFactoryPair> Pairs;
+inline std::vector<cardFactoryPair*> CardLinker_Pairs;
 
 struct cardFactoryPair
 {
-	cardFactoryPair(std::string Classname, EntityFactory* Factory)
+	cardFactoryPair(const char* Classname, EntityFactory* Factory)
 		: classname(Classname), factory(Factory)
 	{
-		Pairs.push_back(*this);
+		CardLinker_Pairs.push_back(this);
 	}
 
-	std::string classname;
+	std::string_view classname;
 	EntityFactory* factory;
 };
 
 #define M_LINK_CARD(cardname, dllclass) \
-EntityFactoryPair ##cardname = EntityFactoryPair( #cardname, [](){ return new ##dllclass(); } );
+    cardFactoryPair __Factory##dllclass = cardFactoryPair( cardname, [](){ return new (CBaseCard*)dllclass(); } )

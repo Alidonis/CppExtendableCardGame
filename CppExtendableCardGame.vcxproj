@@ -33,6 +33,7 @@
     <ClCompile Include="src\imguiTests\imgui_impl_sdl2.cpp" />
     <ClCompile Include="src\imguiTests\imgui_tables.cpp" />
     <ClCompile Include="src\imguiTests\imgui_widgets.cpp" />
+    <ClCompile Include="src\TestCard.cpp" />
     <ClCompile Include="src\testGui.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -55,6 +56,7 @@
     <ClInclude Include="src\imguiTests\imstb_rectpack.h" />
     <ClInclude Include="src\imguiTests\imstb_textedit.h" />
     <ClInclude Include="src\imguiTests\imstb_truetype.h" />
+    <ClInclude Include="src\TestCard.h" />
     <ClInclude Include="src\testGui.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

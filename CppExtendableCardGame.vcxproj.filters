@@ -22,6 +22,9 @@
     <Filter Include="ImGui\library">
       <UniqueIdentifier>{f4d7c9cb-3006-40d5-854a-f51f1edc1c0d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Common\card">
+      <UniqueIdentifier>{0f54510d-8dfd-4494-b792-c90659c8fc50}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CppExtendableCardGame.cpp">
@@ -68,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="src\cardlinker.h">
       <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestCard.cpp">
+      <Filter>Common\card</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="src\Dev.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TestCard.h">
+      <Filter>Common\card</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
