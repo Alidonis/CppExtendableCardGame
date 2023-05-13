@@ -1,13 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 #include <SDL.h>
 
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_opengl3.h"
 #include "imgui_impl_opengl3_loader.h"
-
-#include <iostream>
-#include <vector>
-#include <string>
 
 #include "testGui.h"
 #include <format>
@@ -30,7 +30,7 @@ std::vector<std::string> Debug_Util_RegisteredCardNames(bool print = true, bool 
     return cardNames;
 }
 
-testGui::testGui(bool runImmediately = true) {
+testGui::testGui(bool runImmediately = true, bool gui_demomode = false) {
     // Step 1. Init SDL and create window
     SDL_Init(SDL_INIT_VIDEO);
 
@@ -38,7 +38,7 @@ testGui::testGui(bool runImmediately = true) {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
-    this->window = SDL_CreateWindow("My window", 50, 50, 1024, 768, SDL_WINDOW_OPENGL);
+    this->window = SDL_CreateWindow("My window", 50, 50, 1024, 768, SDL_WINDOW_OPENGL|SDL_WINDOW_RESIZABLE);
 
     // Step 2. Create OpenGL context
     this->glContext = SDL_GL_CreateContext(window);
@@ -54,16 +54,15 @@ testGui::testGui(bool runImmediately = true) {
     // Setup Platform/Renderer backends
     ImGui_ImplSDL2_InitForOpenGL(window, glContext);
     ImGui_ImplOpenGL3_Init("#version 130");
-    if (runImmediately) { gui_init(); }
+    if (runImmediately && !gui_demomode) { gui_init(); }
+    else if (runImmediately && gui_demomode) { gui_demo_run(); }
 }
 
 void testGui::gui_init() {
     gui_run();
 }
 
-void testGui::gui_run() {
-    
-
+void testGui::gui_demo_run() {
     bool windowExists = true;
     while (windowExists) {
         // Step 4.1. Poll for events
@@ -79,10 +78,50 @@ void testGui::gui_run() {
             }
         }
 
-        // Step 4.2. ImGui stuff
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplSDL2_NewFrame();
-        ImGui::NewFrame();
+        gui_preruncycle();
+
+        ImGui::ShowDemoWindow();
+
+        gui_postruncycle();
+    }
+    gui_exit();
+}
+
+void testGui::gui_preruncycle() {
+    // Step 4.2. ImGui stuff
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplSDL2_NewFrame();
+    ImGui::NewFrame();
+}
+
+void testGui::gui_postruncycle() {
+    // Step 4.3. Render the ImGui stuff
+    ImGui::Render();
+
+    glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    SDL_GL_SwapWindow(window);
+}
+
+void testGui::gui_run() {
+
+    while (windowExists) {
+        // Step 4.1. Poll for events
+        SDL_Event ev;
+        while (SDL_PollEvent(&ev))
+        {
+            ImGui_ImplSDL2_ProcessEvent(&ev);
+
+            if (ev.type == SDL_QUIT)
+            {
+                windowExists = false;
+                break;
+            }
+        }
+
+        gui_preruncycle();
 
         ImGui::Begin("Debug Window", &gui_active, ImGuiWindowFlags_MenuBar);
         if (ImGui::BeginMenuBar())
@@ -100,14 +139,7 @@ void testGui::gui_run() {
         if (ImGui::Button("Test Card Linker [Print, Instanciate]")) { Debug_Util_RegisteredCardNames(true, true); }
         ImGui::End();
 
-        // Step 4.3. Render the ImGui stuff
-        ImGui::Render();
-
-        glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-        SDL_GL_SwapWindow(window);
+        gui_postruncycle();
     }
     gui_exit();
 }
