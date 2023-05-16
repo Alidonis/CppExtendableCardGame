@@ -23,7 +23,7 @@ std::vector<std::string> Debug_Util_RegisteredCardNames(bool print = true, bool 
     {
         cardNames.push_back(std::string(CardLinker_Pairs[i]->classname));
         if (print) { std::cout << std::string(CardLinker_Pairs[i]->classname) << std::endl; }
-        if (instanciate) { CardLinker_Pairs[i]->factory(); }
+        if (instanciate) { CBaseCard* instantiationTest = CardLinker_Pairs[i]->factory(); instantiationTest->event_onTurnPhase("inst_test"); }
     }
 
     if (print) { std::cout << "Print end" << std::endl; }

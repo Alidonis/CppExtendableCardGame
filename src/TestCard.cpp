@@ -5,9 +5,11 @@
 
 #include "TestCard.h"
 
-TestCard::TestCard()
+void TestCard::event_onTurnPhase(const char* phase)
 {
-	this->event_onCardCreated();
+	if (phase == "inst_test") {
+		std::cout << "TestCard : received event inst_test";
+	}
 }
 
 M_LINK_CARD("Test Card", TestCard);
