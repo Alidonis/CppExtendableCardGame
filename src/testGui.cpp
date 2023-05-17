@@ -23,7 +23,7 @@ std::vector<std::string> Debug_Util_RegisteredCardNames(bool print = true, bool 
     {
         cardNames.push_back(std::string(CardLinker_Pairs[i]->classname));
         if (print) { std::cout << std::string(CardLinker_Pairs[i]->classname) << std::endl; }
-        if (instanciate) { CBaseCard* instantiationTest = CardLinker_Pairs[i]->factory(); instantiationTest->event_onTurnPhase("inst_test"); }
+        if (instanciate) { CBaseCard* instantiationTest = CardLinker_Pairs[i]->factory(); std::cout << "Instantiated card name : " << instantiationTest->getName() << std::endl; }
     }
 
     if (print) { std::cout << "Print end" << std::endl; }
@@ -49,7 +49,7 @@ testGui::testGui(bool runImmediately = true, bool gui_demomode = false) {
     ImGui::CreateContext();
     this->io = ImGui::GetIO();
     // Setup Dear ImGui style
-    ImGui::StyleColorsClassic();
+    ImGui::StyleColorsDark();
 
     // Setup Platform/Renderer backends
     ImGui_ImplSDL2_InitForOpenGL(window, glContext);
@@ -128,7 +128,8 @@ void testGui::gui_run() {
         {
             if (ImGui::BeginMenu("Window"))
             {
-                if (ImGui::MenuItem("Quit", "N/A")) { gui_active = false; windowExists = false; }
+                if (ImGui::MenuItem("Hide")) { gui_active = false; }
+                if (ImGui::MenuItem("Quit")) { gui_active = false; windowExists = false; }
                 ImGui::EndMenu();
             }
             ImGui::EndMenuBar();

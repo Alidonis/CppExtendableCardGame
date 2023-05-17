@@ -1,5 +1,5 @@
 #pragma once
-class TestCard : CBaseCard
+class TestCard : public CBaseCard
 {
 public:
 	TestCard();

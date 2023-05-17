@@ -5,8 +5,8 @@ class CBaseCard
 public:
 	CBaseCard();
 	~CBaseCard() = default;
-	virtual std::string getName() { return "Base card, Devs love it"; }
+	virtual std::string getName() { return "CBaseCard"; }
 	void remove() { std::cout << "method not implemented\n"; };
-	virtual void event_onTurnPhase(const char* phase) { std::cout << "Phase " << phase << " event triggered" << std::endl; }
+	virtual void event_onTurnPhase(const char* phase);
 private:
 };

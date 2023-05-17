@@ -5,10 +5,14 @@
 
 #include "TestCard.h"
 
+TestCard::TestCard()
+{
+}
+
 void TestCard::event_onTurnPhase(const char* phase)
 {
 	if (phase == "inst_test") {
-		std::cout << "TestCard : received event inst_test";
+		std::cout << "Test Card : received event inst_test";
 	}
 }
 
