@@ -13,6 +13,6 @@
 int main(int argc, char** argv)
 {
 	//CEngine engine = CEngine();
-	//new testGui(true, false);
+	new testGui(true, false);
 	return 0;
 }
