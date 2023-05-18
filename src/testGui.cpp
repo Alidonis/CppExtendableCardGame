@@ -10,7 +10,6 @@
 #include "imgui_impl_opengl3_loader.h"
 
 #include "testGui.h"
-#include <format>
 
 #include "CBaseCard.h"
 #include "cardlinker.h"
@@ -23,7 +22,7 @@ std::vector<std::string> Debug_Util_RegisteredCardNames(bool print = true, bool 
     {
         cardNames.push_back(std::string(CardLinker_Pairs[i]->classname));
         if (print) { std::cout << std::string(CardLinker_Pairs[i]->classname) << std::endl; }
-        if (instanciate) { CBaseCard* instantiationTest = CardLinker_Pairs[i]->factory(); std::cout << "Instantiated card name : " << instantiationTest->getName() << std::endl; }
+        if (instanciate) { CBaseCard* instantiationTest = CardLinker_Pairs[i]->factory(); std::cout << "Instantiated card name : " << instantiationTest->getName() << std::endl; delete instantiationTest; }
     }
 
     if (print) { std::cout << "Print end" << std::endl; }
@@ -122,6 +121,18 @@ void testGui::gui_run() {
         }
 
         gui_preruncycle();
+        if (ImGui::BeginMainMenuBar()) {
+            if (ImGui::BeginMenu("Top Level menu")) {
+                if (ImGui::BeginMenu("Sub-menu")) {
+                    if (ImGui::MenuItem("Sub-menu item")) {}
+                    ImGui::EndMenu();
+                }
+                if (ImGui::MenuItem("Top level menu item")) {}
+                ImGui::EndMenu();
+            }
+            ImGui::EndMainMenuBar();
+        }
+        
 
         ImGui::Begin("Debug Window", &gui_active, ImGuiWindowFlags_MenuBar);
         if (ImGui::BeginMenuBar())

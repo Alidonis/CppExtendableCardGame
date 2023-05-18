@@ -8,10 +8,11 @@
 #include "imgui_impl_opengl3_loader.h"
 
 #include "testGui.h"
+#include "OperatorOverloadingTest.h"
 
 int main(int argc, char** argv)
 {
 	//CEngine engine = CEngine();
-	new testGui(true, false);
+	//new testGui(true, false);
 	return 0;
 }
