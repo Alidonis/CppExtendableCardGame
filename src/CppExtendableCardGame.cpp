@@ -8,7 +8,6 @@
 #include "imgui_impl_opengl3_loader.h"
 
 #include "testGui.h"
-#include "OperatorOverloadingTest.h"
 
 int main(int argc, char** argv)
 {
