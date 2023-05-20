@@ -25,9 +25,6 @@
     <Filter Include="Common\card">
       <UniqueIdentifier>{0f54510d-8dfd-4494-b792-c90659c8fc50}</UniqueIdentifier>
     </Filter>
-    <Filter Include="tests">
-      <UniqueIdentifier>{dbf543f9-001a-497d-a168-b9a5c9a2df3e}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CppExtendableCardGame.cpp">
@@ -77,9 +74,6 @@
     </ClCompile>
     <ClCompile Include="src\TestCard.cpp">
       <Filter>Common\card</Filter>
-    </ClCompile>
-    <ClCompile Include="src\OperatorOverloadingTest.cpp">
-      <Filter>tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,9 +133,6 @@
     </ClInclude>
     <ClInclude Include="src\TestCard.h">
       <Filter>Common\card</Filter>
-    </ClInclude>
-    <ClInclude Include="src\OperatorOverloadingTest.h">
-      <Filter>tests</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
