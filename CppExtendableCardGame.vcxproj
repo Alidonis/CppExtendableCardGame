@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\BaseWindow.cpp" />
     <ClCompile Include="src\cardlinker.h" />
     <ClCompile Include="src\CBaseCard.cpp" />
     <ClCompile Include="src\CBaseGame.cpp" />
     <ClCompile Include="src\CBaseDeck.cpp" />
+    <ClCompile Include="src\CWindowDebug.cpp" />
     <ClCompile Include="src\CPlayer.cpp" />
     <ClCompile Include="src\CppExtendableCardGame.cpp" />
     <ClCompile Include="src\CEngine.cpp" />
@@ -33,15 +35,15 @@
     <ClCompile Include="src\imguiTests\imgui_impl_sdl2.cpp" />
     <ClCompile Include="src\imguiTests\imgui_tables.cpp" />
     <ClCompile Include="src\imguiTests\imgui_widgets.cpp" />
+    <ClCompile Include="src\renderer.cpp" />
     <ClCompile Include="src\TestCard.cpp" />
-    <ClCompile Include="src\testGui.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\BaseWindow.h" />
     <ClInclude Include="src\CBaseCard.h" />
     <ClInclude Include="src\CBaseDeck.h" />
     <ClInclude Include="src\CBaseGame.h" />
+    <ClInclude Include="src\CWindowDebug.h" />
     <ClInclude Include="src\CommonClassHeaders.h" />
     <ClInclude Include="src\CommonHeaders.h" />
     <ClInclude Include="src\CPlayer.h" />
@@ -56,8 +58,9 @@
     <ClInclude Include="src\imguiTests\imstb_rectpack.h" />
     <ClInclude Include="src\imguiTests\imstb_textedit.h" />
     <ClInclude Include="src\imguiTests\imstb_truetype.h" />
+    <ClInclude Include="src\renderer.h" />
     <ClInclude Include="src\TestCard.h" />
-    <ClInclude Include="src\testGui.h" />
+    <ClInclude Include="src\windowlinker.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -114,6 +117,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>.\bin\</OutDir>
     <IntDir>.\bin\inter\</IntDir>
+    <SourcePath>$(VC_SourcePath)\src;</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

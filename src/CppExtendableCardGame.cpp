@@ -7,11 +7,11 @@
 #include "imgui_impl_opengl3.h"
 #include "imgui_impl_opengl3_loader.h"
 
-#include "testGui.h"
+#include "renderer.h"
 
 int main(int argc, char** argv)
 {
 	//CEngine engine = CEngine();
-	new testGui(true, false);
+	new renderer(true);
 	return 0;
 }

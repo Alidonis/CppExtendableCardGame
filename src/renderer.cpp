@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <format>
 
 #include <SDL.h>
 
@@ -9,10 +10,11 @@
 #include "imgui_impl_opengl3.h"
 #include "imgui_impl_opengl3_loader.h"
 
-#include "testGui.h"
-
 #include "CBaseCard.h"
 #include "cardlinker.h"
+#include "windowlinker.h"
+
+#include "renderer.h"
 
 std::vector<std::string> Debug_Util_RegisteredCardNames(bool print = true, bool instanciate = false)
 {
@@ -29,7 +31,7 @@ std::vector<std::string> Debug_Util_RegisteredCardNames(bool print = true, bool 
     return cardNames;
 }
 
-testGui::testGui(bool runImmediately = true, bool gui_demomode = false) {
+renderer::renderer(bool runImmediately = true) {
     // Step 1. Init SDL and create window
     SDL_Init(SDL_INIT_VIDEO);
 
@@ -37,7 +39,7 @@ testGui::testGui(bool runImmediately = true, bool gui_demomode = false) {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
-    this->window = SDL_CreateWindow("My window", 50, 50, 1024, 768, SDL_WINDOW_OPENGL|SDL_WINDOW_RESIZABLE);
+    this->window = SDL_CreateWindow("My window", 50, 50, 1024, 768, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 
     // Step 2. Create OpenGL context
     this->glContext = SDL_GL_CreateContext(window);
@@ -53,47 +55,21 @@ testGui::testGui(bool runImmediately = true, bool gui_demomode = false) {
     // Setup Platform/Renderer backends
     ImGui_ImplSDL2_InitForOpenGL(window, glContext);
     ImGui_ImplOpenGL3_Init("#version 130");
-    if (runImmediately && !gui_demomode) { gui_init(); }
-    else if (runImmediately && gui_demomode) { gui_demo_run(); }
+    if (runImmediately) { gui_init(); }
 }
 
-void testGui::gui_init() {
+void renderer::gui_init() {
     gui_run();
 }
 
-void testGui::gui_demo_run() {
-    bool windowExists = true;
-    while (windowExists) {
-        // Step 4.1. Poll for events
-        SDL_Event ev;
-        while (SDL_PollEvent(&ev))
-        {
-            ImGui_ImplSDL2_ProcessEvent(&ev);
-
-            if (ev.type == SDL_QUIT)
-            {
-                windowExists = false;
-                break;
-            }
-        }
-
-        gui_preruncycle();
-
-        ImGui::ShowDemoWindow();
-
-        gui_postruncycle();
-    }
-    gui_exit();
-}
-
-void testGui::gui_preruncycle() {
+void renderer::gui_preruncycle() {
     // Step 4.2. ImGui stuff
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplSDL2_NewFrame();
     ImGui::NewFrame();
 }
 
-void testGui::gui_postruncycle() {
+void renderer::gui_postruncycle() {
     // Step 4.3. Render the ImGui stuff
     ImGui::Render();
 
@@ -104,7 +80,7 @@ void testGui::gui_postruncycle() {
     SDL_GL_SwapWindow(window);
 }
 
-void testGui::gui_run() {
+void renderer::gui_run() {
 
     while (windowExists) {
         // Step 4.1. Poll for events
@@ -132,31 +108,18 @@ void testGui::gui_run() {
             }
             ImGui::EndMainMenuBar();
         }
-        
 
-        ImGui::Begin("Debug Window", &gui_active, ImGuiWindowFlags_MenuBar);
-        if (ImGui::BeginMenuBar())
+        for (size_t i = 0; i < WindowLinker_Pairs.size(); i++)
         {
-            if (ImGui::BeginMenu("Window"))
-            {
-                if (ImGui::MenuItem("Hide")) { gui_active = false; }
-                if (ImGui::MenuItem("Quit")) { gui_active = false; windowExists = false; }
-                ImGui::EndMenu();
-            }
-            ImGui::EndMenuBar();
+            if (WindowLinker_Pairs[i]->window->open) WindowLinker_Pairs[i]->window->render();
         }
-
-        if (ImGui::Button("Test Card Linker [Print]")) { Debug_Util_RegisteredCardNames(true,false); }
-        if (ImGui::Button("Test Card Linker [Instanciate]")) { Debug_Util_RegisteredCardNames(false, true); }
-        if (ImGui::Button("Test Card Linker [Print, Instanciate]")) { Debug_Util_RegisteredCardNames(true, true); }
-        ImGui::End();
 
         gui_postruncycle();
     }
     gui_exit();
 }
 
-void testGui::gui_exit() {
+void renderer::gui_exit() {
     // Step 5. Shutdown
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplSDL2_Shutdown();

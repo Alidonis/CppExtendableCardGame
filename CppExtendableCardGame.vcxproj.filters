@@ -25,6 +25,18 @@
     <Filter Include="Common\card">
       <UniqueIdentifier>{0f54510d-8dfd-4494-b792-c90659c8fc50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tests">
+      <UniqueIdentifier>{dbf543f9-001a-497d-a168-b9a5c9a2df3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="renderer">
+      <UniqueIdentifier>{6822fd43-c3cc-411a-8d98-853815f912dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="renderer\window">
+      <UniqueIdentifier>{042e3837-abe1-4654-9ad5-10461e5960fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="renderer\window\CWindowDebug">
+      <UniqueIdentifier>{edf43bbf-10bc-4c4c-933e-872b86441c1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CppExtendableCardGame.cpp">
@@ -44,9 +56,6 @@
     </ClCompile>
     <ClCompile Include="src\CBaseDeck.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\testGui.cpp">
-      <Filter>ImGui\tests</Filter>
     </ClCompile>
     <ClCompile Include="src\imguiTests\imgui_impl_sdl2.cpp">
       <Filter>ImGui\library</Filter>
@@ -75,6 +84,15 @@
     <ClCompile Include="src\TestCard.cpp">
       <Filter>Common\card</Filter>
     </ClCompile>
+    <ClCompile Include="src\renderer.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BaseWindow.cpp">
+      <Filter>renderer\window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CWindowDebug.cpp">
+      <Filter>renderer\window\CWindowDebug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CBaseCard.h">
@@ -97,9 +115,6 @@
     </ClInclude>
     <ClInclude Include="src\CommonHeaders.h">
       <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="src\testGui.h">
-      <Filter>ImGui\tests</Filter>
     </ClInclude>
     <ClInclude Include="src\imguiTests\imgui_impl_opengl3_loader.h">
       <Filter>ImGui\library</Filter>
@@ -133,6 +148,18 @@
     </ClInclude>
     <ClInclude Include="src\TestCard.h">
       <Filter>Common\card</Filter>
+    </ClInclude>
+    <ClInclude Include="src\renderer.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BaseWindow.h">
+      <Filter>renderer\window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\windowlinker.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CWindowDebug.h">
+      <Filter>renderer\window\CWindowDebug</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
