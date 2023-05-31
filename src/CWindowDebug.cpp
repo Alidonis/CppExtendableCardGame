@@ -54,4 +54,4 @@ void CWindowDebug::render()
 }
 #ifdef _DEBUG
 M_LINKWINDOW(CWindowDebug);
-#endif // DEBUG
+#endif
