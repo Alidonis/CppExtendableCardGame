@@ -9,8 +9,8 @@
 *.userosscache
 *.sln.docstates
 
-# Mono auto generated files
-mono_crash.*
+# imGui INI files
+imgui.ini
 
 # Build results (commented entries contains essential files to setup and deployment of project)
 #[Bb]in/
