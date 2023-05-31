@@ -52,5 +52,6 @@ void CWindowDebug::render()
 
     ImGui::End();
 }
-
+#ifdef _DEBUG
 M_LINKWINDOW(CWindowDebug);
+#endif // DEBUG

@@ -15,8 +15,6 @@ mono_crash.*
 # Build results (commented entries contains essential files to setup and deployment of project)
 #[Bb]in/
 [Bb]in/inter/
-[Dd]ebug/
-[Rr]elease/
 *.exe
 
 # Visual C++ debugging files

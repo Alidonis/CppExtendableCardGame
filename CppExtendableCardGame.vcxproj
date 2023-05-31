@@ -118,9 +118,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>.\bin\</OutDir>
-    <IntDir>.\bin\inter\</IntDir>
+    <OutDir>.\bin\debug</OutDir>
+    <IntDir>.\bin\inter\debug</IntDir>
     <SourcePath>$(VC_SourcePath)\src;</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>.\bin\release</OutDir>
+    <IntDir>.\bin\inter\release</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -162,6 +166,7 @@
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>src\imguiTests;includeFuckery\SDL2\include</AdditionalIncludeDirectories>
+      <AdditionalOptions>-D_DEBUG</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -180,6 +185,8 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>src\imguiTests;includeFuckery\SDL2\include</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
