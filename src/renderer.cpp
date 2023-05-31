@@ -96,6 +96,7 @@ void renderer::gui_run() {
 
         for (size_t i = 0; i < WindowLinker_Pairs.size(); i++)
         {
+            if (WindowLinker_Pairs[i]->window->getName() == "Debug Window") { WindowLinker_Pairs[i]->window->render();  continue; }
             if (WindowLinker_Pairs[i]->window->open) WindowLinker_Pairs[i]->window->render();
         }
 

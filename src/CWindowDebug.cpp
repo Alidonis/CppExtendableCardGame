@@ -26,7 +26,7 @@ std::vector<std::string> Debug_Util_RegisteredCardNames(bool print = true, bool 
 
 void CWindowDebug::render()
 {
-    ImGui::Begin("Debug Window##renderer_debug", &open, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_UnsavedDocument);
+    ImGui::Begin("Debug Window##renderer_debug", &open, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse);
     if (ImGui::BeginMenuBar())
     {
         if (ImGui::BeginMenu("Window"))
