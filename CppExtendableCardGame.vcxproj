@@ -62,6 +62,9 @@
     <ClInclude Include="src\TestCard.h" />
     <ClInclude Include="src\windowlinker.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
