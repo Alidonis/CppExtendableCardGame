@@ -11,4 +11,8 @@ void CBaseWindow::render()
 	ImGui::End();
 }
 
+
+#ifdef _DEBUG
 M_LINKWINDOW(CBaseWindow);
+#endif // DEBUG
+

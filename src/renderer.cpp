@@ -83,14 +83,6 @@ void renderer::gui_run() {
 
         gui_preruncycle();
         if (ImGui::BeginMainMenuBar()) {
-            if (ImGui::BeginMenu("Top Level menu")) {
-                if (ImGui::BeginMenu("Sub-menu")) {
-                    if (ImGui::MenuItem("Sub-menu item")) {}
-                    ImGui::EndMenu();
-                }
-                if (ImGui::MenuItem("Top level menu item")) {}
-                ImGui::EndMenu();
-            }
             ImGui::EndMainMenuBar();
         }
 
