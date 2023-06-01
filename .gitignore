@@ -1,4 +1,4 @@
-## Visual Studio GitIgnore, originaly created by addons, edited for easy setup on any machine.
+## Visual Studio GitIgnore, originaly created by VS addons, edited for easy setup on any machine.
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
@@ -10,7 +10,8 @@
 *.sln.docstates
 
 # imGui INI files
-imgui.ini
+src/imgui.ini
+bin/*/imgui.ini
 
 # Build results (commented entries contains essential files to setup and deployment of project)
 #[Bb]in/
