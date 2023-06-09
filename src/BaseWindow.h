@@ -8,4 +8,3 @@ public:
 	virtual void render();
 	virtual const char* getName() { return "Base Window"; }
 };
-

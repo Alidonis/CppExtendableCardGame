@@ -1,3 +1,4 @@
+#ifdef _DEBUG
 #include <format>
 #include <imgui.h>
 
@@ -26,16 +27,17 @@ std::vector<std::string> Debug_Util_RegisteredCardNames(bool print = true, bool 
 
 void CWindowDebug::render()
 {
-    ImGui::Begin("Debug Window##renderer_debug", &open, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse);
+    ImGui::Begin("Debug Window##renderer_debug", NULL, ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse);
     if (ImGui::BeginMenuBar())
     {
         if (ImGui::BeginMenu("Window"))
         {
+            ImGui::MenuItem("...", "", false, false);
             ImGui::EndMenu();
         }
         ImGui::EndMenuBar();
     }
-
+    
     /*if (ImGui::Button("Test Card Linker [Print]")) { Debug_Util_RegisteredCardNames(true, false); }
     if (ImGui::Button("Test Card Linker [Instanciate]")) { Debug_Util_RegisteredCardNames(false, true); }
     if (ImGui::Button("Test Card Linker [Print, Instanciate]")) { Debug_Util_RegisteredCardNames(true, true); }
@@ -52,6 +54,6 @@ void CWindowDebug::render()
 
     ImGui::End();
 }
-#ifdef _DEBUG
+
 M_LINKWINDOW(CWindowDebug);
 #endif
