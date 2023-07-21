@@ -3,7 +3,7 @@
 #include <imgui.h>
 
 #include "windowlinker.h"
-#include "BaseWindow.h"
+#include "CBaseWindow.h"
 
 #include "CBaseCard.h"
 #include "cardlinker.h"

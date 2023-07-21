@@ -40,6 +40,9 @@
     <Filter Include="/misc/project">
       <UniqueIdentifier>{cbdc6383-9ace-4f76-80cb-dbfbcc6af51c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="renderer\window\game">
+      <UniqueIdentifier>{5a93df93-9131-4426-ace8-54ed3689cc85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CppExtendableCardGame.cpp">
@@ -95,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="src\CWindowDebug.cpp">
       <Filter>renderer\window\CWindowDebug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MainMenuWindow.cpp">
+      <Filter>renderer\window\game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +169,12 @@
     </ClInclude>
     <ClInclude Include="src\CWindowDebug.h">
       <Filter>renderer\window\CWindowDebug</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MainMenuWindow.h">
+      <Filter>renderer\window\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
