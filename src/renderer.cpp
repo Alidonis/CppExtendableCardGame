@@ -91,7 +91,7 @@ void renderer::gui_run() {
             #ifdef _DEBUG
             if (WindowLinker_Pairs[i]->window->getName() == "Debug Window") { WindowLinker_Pairs[i]->window->render();  continue; }
             #endif
-            if (WindowLinker_Pairs[i]->window->open) WindowLinker_Pairs[i]->window->render();
+            if (WindowLinker_Pairs[i]->window->open || (!WindowLinker_Pairs[i]->window->closable && WindowLinker_Pairs[i]->window->open)) WindowLinker_Pairs[i]->window->render();
         }
 
         gui_postruncycle();

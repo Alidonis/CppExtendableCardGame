@@ -1,7 +1,7 @@
 #include <imgui.h>
 
 #include "windowlinker.h"
-#include "CBaseWindow.h"
+#include "BaseWindow.h"
 
 #include "cardlinker.h"
 
@@ -25,6 +25,7 @@ void CMainmenuWindow::render()
 		}
 		if (ImGui::BeginMenu("Debug"))
 		{
+			if (ImGui::MenuItem("close main menu", "", false, true)) open = false;
 			ImGui::MenuItem("...", "", false, false);
 			ImGui::EndMenu();
 		}
@@ -33,3 +34,5 @@ void CMainmenuWindow::render()
 
 	ImGui::End();
 }
+
+M_LINKWINDOW(CMainmenuWindow);

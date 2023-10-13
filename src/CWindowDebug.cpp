@@ -3,7 +3,7 @@
 #include <imgui.h>
 
 #include "windowlinker.h"
-#include "CBaseWindow.h"
+#include "BaseWindow.h"
 
 #include "CBaseCard.h"
 #include "cardlinker.h"
@@ -45,7 +45,7 @@ void CWindowDebug::render()
 
     for (size_t i = 0; i < WindowLinker_Pairs.size(); i++)
     {
-        if (WindowLinker_Pairs[i]->window->getName() == getName()) continue;
+        if (WindowLinker_Pairs[i]->window->getName() == getName() || !WindowLinker_Pairs[i]->window->closable) continue;
         if (ImGui::Button(std::format("{}{}", WindowLinker_Pairs[i]->window->getName(), "##debug").c_str()))
         {
             WindowLinker_Pairs[i]->window->open = true;

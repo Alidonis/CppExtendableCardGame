@@ -2,7 +2,7 @@
 
 #include "windowlinker.h"
 
-#include "CBaseWindow.h"
+#include "BaseWindow.h"
 
 void CBaseWindow::render()
 {

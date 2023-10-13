@@ -3,7 +3,7 @@
 class CMainmenuWindow : public CBaseWindow
 {
 public:
-	CMainmenuWindow() { open = true; }
+	CMainmenuWindow() { open = true; closable = false; }
 	~CMainmenuWindow() = default;
 
 	void render() override;
